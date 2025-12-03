@@ -33,22 +33,22 @@ export async function updateReputationOnDisputeResolution(
 
     const newFreelancerScore = Math.max(
       0,
-      ((freelancerUser as any)?.reputation_score || 0) + freelancerDelta
+      (freelancerUser?.reputation_score || 0) + freelancerDelta
     );
-    const newClientScore = Math.max(0, ((clientUser as any)?.reputation_score || 0) + clientDelta);
+    const newClientScore = Math.max(0, (clientUser?.reputation_score || 0) + clientDelta);
 
     updateUserReputation(freelancerAddress, newFreelancerScore);
     updateUserReputation(clientAddress, newClientScore);
 
     logger.info('Reputation updated', {
       verdict,
-      freelancer: { old: (freelancerUser as any)?.reputation_score || 0, new: newFreelancerScore },
-      client: { old: (clientUser as any)?.reputation_score || 0, new: newClientScore },
+      freelancer: { old: freelancerUser?.reputation_score || 0, new: newFreelancerScore },
+      client: { old: clientUser?.reputation_score || 0, new: newClientScore },
     });
 
     return {
-      freelancer: { old: (freelancerUser as any)?.reputation_score || 0, new: newFreelancerScore },
-      client: { old: (clientUser as any)?.reputation_score || 0, new: newClientScore },
+      freelancer: { old: freelancerUser?.reputation_score || 0, new: newFreelancerScore },
+      client: { old: clientUser?.reputation_score || 0, new: newClientScore },
     };
   } catch (error) {
     logger.error('Failed to update reputation', error);

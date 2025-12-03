@@ -1,0 +1,50 @@
+# Foundry
+cache/
+out/
+broadcast/
+deployments/*.json
+
+# Environment
+.env
+.env.local
+
+# Dependencies
+node_modules/
+lib/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+backend/logs/
+
+# Testing
+coverage/
+
+# Build artifacts
+dist/
+build/
+*.tmp
+
+# Secrets
+.env.*.private
+secrets/
+
+# Database
+backend/data/
+*.db
+*.db-shm
+*.db-wal
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local

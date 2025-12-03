@@ -164,65 +164,6 @@ export function getDisputeHistory(limit: number = 50) {
   return stmt.all(limit);
 }
 
-// Record project
-export function recordProject(data: {
-  projectId: number;
-  clientAddress: string;
-  freelancerAddress: string;
-  totalAmount: number;
-  status?: string;
-}) {
-  const stmt = db.prepare(`
-    INSERT OR REPLACE INTO projects (project_id, client_address, freelancer_address, status, total_amount)
-    VALUES (?, ?, ?, ?, ?)
-  `);
-  return stmt.run(
-    data.projectId,
-    data.clientAddress,
-    data.freelancerAddress,
-    data.status || 'ACTIVE',
-    data.totalAmount
-  );
-}
-
-// Record dispute
-export function recordDispute(data: {
-  disputeId: number;
-  projectId: number;
-  milestoneId: number;
-  initiator: string;
-  status?: string;
-  aiVerdict?: string;
-  aiConfidence?: number;
-}) {
-  const stmt = db.prepare(`
-    INSERT OR REPLACE INTO disputes (dispute_id, project_id, milestone_id, initiator_address, status, ai_verdict, ai_confidence)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-  `);
-  return stmt.run(
-    data.disputeId,
-    data.projectId,
-    data.milestoneId,
-    data.initiator,
-    data.status || 'OPEN',
-    data.aiVerdict,
-    data.aiConfidence
-  );
-}
-
-// Update dispute verdict
-export function updateDisputeVerdict(
-  disputeId: number,
-  verdict: string,
-  votesFor: number,
-  votesAgainst: number
-) {
-  const stmt = db.prepare(`
-    UPDATE disputes SET jury_verdict = ? WHERE dispute_id = ?
-  `);
-  return stmt.run(verdict, disputeId);
-}
-
 // Get user reputation
 export function getUserReputation(walletAddress: string) {
   const stmt = db.prepare('SELECT reputation_score FROM users WHERE wallet_address = ?');
@@ -248,5 +189,5 @@ export function getProjectStats() {
   return stmt.get();
 }
 
-// Export database instance (with any typing to avoid export issues)
-export default db as any;
+// Export database instance
+export default db;
