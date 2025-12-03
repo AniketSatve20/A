@@ -1,0 +1,17 @@
+
+> humanwork-ai-worker@1.0.0 dev
+> ts-node src/server.ts
+
+✅ Database initialized
+🚀 Backend server running on http://localhost:3000
+📊 Health check: http://localhost:3000/health
+[2025-12-02T21:38:05.552Z] ℹ️ INFO: GET /api/storage/stats
+[2025-12-02T21:38:05.933Z] ❌ ERROR: Failed to list stored files | {}
+[2025-12-02T21:38:05.953Z] ℹ️ INFO: GET /api/storage/list
+[2025-12-02T21:38:06.003Z] ❌ ERROR: Failed to list stored files | {}
+[2025-12-02T21:38:06.004Z] ℹ️ INFO: 📁 Listed 0 stored files
+[2025-12-02T21:38:19.264Z] ℹ️ INFO: GET /api/storage/stats
+[2025-12-02T21:38:19.601Z] ❌ ERROR: Failed to list stored files | {}
+[2025-12-02T21:38:19.618Z] ℹ️ INFO: GET /api/storage/list
+[2025-12-02T21:38:19.666Z] ❌ ERROR: Failed to list stored files | {}
+[2025-12-02T21:38:19.667Z] ℹ️ INFO: 📁 Listed 0 stored files
